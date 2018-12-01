@@ -1,0 +1,45 @@
+<html>
+<head>
+	
+</head>
+
+	<body>
+		<div class="col-md-6 text-right">
+					{%if 'username' not in session %}
+			<a href="{{url_for('showLogin')}}">Click Here to Login </a>
+			{% else %}
+			<a href="{{url_for('gdisconnect')}}">Logout </a>
+			{% endif %}
+		
+	</div>
+		<h3><a href = "{{url_for('showstartups')}}"> Home </a></h3>
+		<br>
+		<h4><a href="{{url_for('newstartup')}}">create startup!</a></h4>
+		<br>
+
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+
+		<ul>
+		{% for message in messages %}
+		<li><strong>{{message}}</strong></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+
+		<div>
+			{% for startup in startups: %}
+			<p>
+			<a href="{{url_for('showfounder', startup_id = startup.id)}}">{{startup.name}}</a>
+			</p>
+
+
+			<br>
+			<br>
+			{% endfor %}
+		</div>
+
+		
+	</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<head>
+	
+</head>
+
+	<body>
+		<h3><a href = "{{url_for('showstartups')}}"> Home </a></h3>
+		<h1> Are you sure you want to delete {{delete.name}}? </h1>
+		<form action="#" method = 'POST'>
+			<button type='submit'> delete </button>
+		</form>
+		<a href = "{{url_for('showfounder', startup_id=delete.startup_id)}}"> Cancel </a>
+	</body>
+	</html>

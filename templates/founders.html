@@ -1,0 +1,47 @@
+<html>
+<head>
+	
+</head>
+
+	<body>
+		<h3><a href = "{{url_for('showstartups')}}"> Home </a></h3>
+		{{startup_1.name}} 
+
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+
+		<ul>
+		{% for message in messages %}
+		<li><strong>{{message}}</strong></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		
+		<br>
+		<br>
+		{% for i in details: %}
+		{{i.name}}
+		<br>
+		<a href="{{url_for('editfounder', founder_id=i.id)}}">Edit</a>
+		<a href="{{url_for('deletefounder', founder_id=i.id)}}">Delete</a>
+		<br>
+		<br>
+		{% endfor %}
+
+		<div>
+		<h4> Add new founder: </h4>
+		<form action="#" method = 'POST'>
+			<input type='text' name='name' placeholder='name'/>
+			<br>
+			<br>
+			<input type='text' name='bio' placeholder='bio'/>
+			<br>
+			<br>
+			<button type='submit'> create founder! </button>
+		</form>
+		</div>
+
+		
+	</body>
+</html>

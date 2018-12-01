@@ -1,0 +1,17 @@
+<html>
+<head>
+	
+</head>
+
+	<body>
+		<h3><a href = "{{url_for('showstartups')}}"> Home </a></h3>
+		<form action="#" method = 'POST'>
+			<input type='text' name='name' value='{{edit.name}}' placeholder='name'>
+			<br>
+			<input type='text' name='bio' value='{{edit.bio}}' placeholder='name'>
+
+			<button type='submit'> edit </button>
+		</form>
+		<a href = "{{url_for('showfounder', startup_id=edit.startup_id)}}"> Cancel </a>
+	</body>
+	</html>
